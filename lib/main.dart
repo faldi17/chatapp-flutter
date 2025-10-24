@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: true,
-      home: const LoginPage(),
+      home: LoginPage(),
       theme: lightMode,
     );
   }
