@@ -11,6 +11,9 @@ class LoginPage extends StatelessWidget {
 
   LoginPage({super.key});
 
+  // login method
+  void login() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +61,9 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 25),
 
             // login button
-            MyButton(),
+            MyButton(text: "Login", onTap: login),
+
+            const SizedBox(height: 25),
 
             // register now
           ],
