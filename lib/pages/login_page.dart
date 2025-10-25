@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/components/my_button.dart';
 import 'package:flutter_basic/components/my_textfield.dart';
 
 class LoginPage extends StatelessWidget {
@@ -57,6 +58,7 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 25),
 
             // login button
+            MyButton(),
 
             // register now
           ],
