@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import '../auth/auth_service.dart';
 import '../components/my_button.dart';
 import '../components/my_textfield.dart';
 
@@ -15,7 +16,25 @@ class LoginPage extends StatelessWidget {
   LoginPage({super.key, required this.onTap});
 
   // login method
-  void login() {}
+  void login(BuildContext context) async {
+    // auth service
+    final authService = AuthService();
+
+    // try login
+    try {
+      await authService.signWithEmailPassword(
+        _emailController.text,
+        _pwController.text,
+      );
+    }
+    // catch any errors
+    catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(title: Text(e.toString())),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +83,7 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 25),
 
             // login button
-            MyButton(text: "Login", onTap: login),
+            MyButton(text: "Login", onTap: () => login(context)),
 
             const SizedBox(height: 25),
 
