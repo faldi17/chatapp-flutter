@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import '../auth/auth_service.dart';
+import '../services/auth/auth_service.dart';
 import '../pages/settings_page.dart';
 
 class MyDrawer extends StatelessWidget {

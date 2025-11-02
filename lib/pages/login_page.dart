@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import '../auth/auth_service.dart';
+import '../services/auth/auth_service.dart';
 import '../components/my_button.dart';
 import '../components/my_textfield.dart';
 
