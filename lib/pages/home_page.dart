@@ -3,6 +3,7 @@ import '../components/my_drawer.dart';
 import '../components/user_tile.dart';
 import '../services/auth/auth_service.dart';
 import '../services/chat/chat_service.dart';
+import 'chat_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -14,7 +15,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Home") ),
+      appBar: AppBar(title: const Text("Home")),
       drawer: const MyDrawer(),
       body: _buildUserList(),
     );
@@ -39,7 +40,9 @@ class HomePage extends StatelessWidget {
         return ListView(
           children:
               snapshot.data!
-                  .map<Widget>((userData) => _buildUserListItem)
+                  .map<Widget>(
+                    (userData) => _buildUserListItem(userData, context),
+                  )
                   .toList(),
         );
       },
@@ -52,6 +55,17 @@ class HomePage extends StatelessWidget {
     BuildContext context,
   ) {
     // display all users except current user
-    return UserTile();
+    return UserTile(
+      text: userData["email"],
+      onTap: () {
+        // tapped on a user -> go to chat page
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ChatPage(receiverEmail: userData["email"]),
+          ),
+        );
+      },
+    );
   }
 }
