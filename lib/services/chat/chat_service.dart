@@ -32,6 +32,15 @@ class ChatService {
   }
 
   // send message
+  Future<void> sendMessage(String receiverID, message) async {
+    // get current user info
+
+    // create a new message
+
+    // construct chat room ID for the two users (sorted to ensure uniqueness)
+
+    // add new message to database
+  }
 
   // get messages
 }
